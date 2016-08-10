@@ -27,7 +27,7 @@ class jobs_type(models.Model):
 # 新闻动态
 class news(models.Model):
     type = models.ForeignKey(news_type)  # 新闻类型
-    title = models.CharField(max_length=40) # 新闻标题
+    title = models.CharField(max_length=40)  # 新闻标题
     author = models.CharField(max_length=20)  # 作者，编辑
     time = models.DateTimeField(auto_now_add=True)  # 发布时间
     url = models.URLField()  # 来源
@@ -39,12 +39,11 @@ class news(models.Model):
 class activity(models.Model):
     type = models.ForeignKey(activity_type)  # 活动类型，线上，线下
     title = models.CharField(max_length=40)  # 活动标题
-    sponsor = models.CharField(max_length=40) # 活动发起方
+    sponsor = models.CharField(max_length=40)  # 活动发起方
     start = models.DateTimeField()  # 活动开始时间
     end = models.DateTimeField()  # 活动结束时间
     address = models.CharField(max_length=100)  # 活动地址
     text = models.TextField()  # 活动主要内容
-
 
 
 # 公益招募
@@ -59,9 +58,10 @@ class join(models.Model):
 
 # 公益捐赠
 class donate(models.Model):
-    type = models.ForeignKey(donate_type)
-    time = models.DateTimeField()
-    text = models.TextField()
+    title = models.CharField(max_length=40)  # 捐助标题
+    type = models.ForeignKey(donate_type)  # 捐助类型
+    time = models.DateTimeField()  # 捐助日期
+    text = models.TextField()  # 捐助内容
 
 
 # 图片
