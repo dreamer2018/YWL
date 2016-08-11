@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+# -*- coding: UTF-8 -*-
 """YWL URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -18,5 +20,10 @@ from django.contrib import admin
 from ywl_site.views import *
 
 urlpatterns = [
-    url(r'^admin/', include(admin.site.urls)), url('^$', index), url(r'^news/$', newss), url('^test/$', test)
+    url(r'^admin/', include(admin.site.urls)),
+    url(r'^$', index),  # 首页
+    url(r'^test/$', test), url(r'^test/(\d)/$', test_plus),  # 测试
+    url(r'^news/$', newss), url(r'^news/(\d)/$', news_view),  # 新闻动态
+    url(r'^activity/$', activitys), url(r'^activity/(\d)/$', activity_view)
+
 ]
