@@ -7,15 +7,14 @@
                 <div class="label_head">
                     <div class="label_title">新闻内容</div>
                 </div>
-
                 <div class="about_con">
-                    <ul class="label_pad">
-                        {% for item in news %}
-                            <li>
-                                <span>作者:{{ item.author }} &nbsp; 点击数:{{ item.read }} &nbsp; {{ item.time | date:"Y-m-d" }}</span><a
-                                    href="/news/{{ item.id }}/">{{ item.title }}</a></li>
-                        {% endfor %}
-                    </ul>
+                    <div class="news_detail_title">{{ news.title }}</div>
+                    <div class="news_detail_info">
+                        <div class="news_detail_time">{{ news.time | date:"Y-m-d" }}</div>
+                        <div class="news_detail_from">来源:<a href="{{ news.url }}">{{ news.url }}</a></div>
+                        <div class="news_detail_tool">点击数:{{ news.read }} 作者:{{ news.author }}</div>
+                    </div>
+                    <div class="news_detail_cont"> {{ news.text }}</div>
                 </div>
             </div>
         </div>

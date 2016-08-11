@@ -5,16 +5,17 @@
         <div class="fwmain_nright r mTop10">
             <div class="label">
                 <div class="label_head">
-                    <div class="label_title">新闻内容</div>
+                    <div class="label_title">活动内容</div>
                 </div>
-
                 <div class="about_con">
-                    <ul class="label_pad">
-                        {% for item in news %}
-                            <li>
-                                <span>作者:{{ item.author }} &nbsp; 点击数:{{ item.read }} &nbsp; {{ item.time | date:"Y-m-d" }}</span><a
-                                    href="/news/{{ item.id }}/">{{ item.title }}</a></li>
-                        {% endfor %}
+                    <ul class="label_pad mTop10">
+                        <div>主&nbsp;&nbsp;&nbsp;&nbsp;题：{{ activity.title }}</div>
+                        <div>发起者：{{ activity.sponsor }}</div>
+                        <div>开始时间：{{ activity.start | date:"Y-m-d"}}</div>
+                        <div>结束时间：{{ activity.end | date:"Y-m-d" }}</div>
+                        <div>活动地址：{{ activity.address }}</div>
+                        <div>主要内容：</div>
+                        <div class="news_detail_cont"> {{ activity.text }}</div>
                     </ul>
                 </div>
             </div>

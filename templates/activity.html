@@ -5,15 +5,14 @@
         <div class="fwmain_nright r mTop10">
             <div class="label">
                 <div class="label_head">
-                    <div class="label_title">新闻内容</div>
+                    <div class="label_title">专题活动</div>
                 </div>
 
                 <div class="about_con">
                     <ul class="label_pad">
-                        {% for item in news %}
+                        {% for item in activity %}
                             <li>
-                                <span>作者:{{ item.author }} &nbsp; 点击数:{{ item.read }} &nbsp; {{ item.time | date:"Y-m-d" }}</span><a
-                                    href="/news/{{ item.id }}/">{{ item.title }}</a></li>
+                                <span>{{ item.start | date:"Y-m-d" }}</span><a href="/activity/{{ item.id }}/">{{ item.title }}</a></li>
                         {% endfor %}
                     </ul>
                 </div>
