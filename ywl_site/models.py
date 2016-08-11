@@ -59,7 +59,7 @@ class join(models.Model):
 # 公益捐赠
 class donate(models.Model):
     title = models.CharField(max_length=40)  # 捐助标题
-    type = models.ForeignKey(donate_type)  # 捐助类型
+    type = models.ForeignKey(donate_type)  # 捐助类型 
     time = models.DateTimeField()  # 捐助日期
     text = models.TextField()  # 捐助内容
 

@@ -18,7 +18,7 @@
                 </div>
                 <ul class="label_pad mTop10">
                     {% for item in donate %}
-                        <li><span>{{ item.time }}</span><a href="">{{ item.title }}</a></li>
+                        <li><span>{{ item.time | date:"Y-m-d" }}</span><a href="">{{ item.title }}</a></li>
                     {% endfor %}
                 </ul>
             </div>
@@ -79,7 +79,7 @@
                 </div>
                 <ul class="label_pad">
                     {% for item in news %}
-                        <li><span>{{ item.time }}</span><a href="{{ item.url }}">{{ item.title }} </a></li>
+                        <li><span>{{ item.time | date:"Y-m-d" }}</span><a href="{{ item.url }}">{{ item.title }} </a></li>
                     {% endfor %}
 
                 </ul>
