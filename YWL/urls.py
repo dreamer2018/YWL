@@ -26,7 +26,8 @@ urlpatterns = [
     url(r'^news/$', newss), url(r'^news/(\d)/$', news_view),  # 新闻动态
     url(r'^activity/$', activitys), url(r'^activity/(\d)/$', activity_view),  # 专题活动
     url(r'^join/$', joins), url(r'^join/(\d)/$', join_view),  # 公益招募
-url(r'^donate/$', donates), url(r'^donate/(\d)/$', donate_view),  # 乐捐
-
+    url(r'^donate/$', donates), url(r'^donate/(\d)/$', donate_view),  # 乐捐
+    url(r'^about/$', about),
+    url(r'^contact/$', contact),
 
 ]

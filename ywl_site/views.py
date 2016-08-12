@@ -52,9 +52,18 @@ def donates(request):
                               {'current_name': '乐捐', 'url': '../static/', 'donate': donate.objects.all()})
 
 
+def about(request):
+    return render_to_response('about.html',
+                              {'current_name': '关于我们', 'url': '../static/',})
+
+
+def contact(request):
+    return render_to_response('contact.html', {'current_name': '联系我们', 'url': '../static/',})
+
+
 def donate_view(request, offset):
     return render_to_response('donate_view.html', {'url': '../../static/', 'current_name': '乐捐', 'id': offset,
-                                                 'donate': donate.objects.get(id=offset)}, )
+                                                   'donate': donate.objects.get(id=offset)}, )
 
 
 def test(request):
