@@ -5,17 +5,15 @@
         <div class="fwmain_nright r mTop10">
             <div class="label">
                 <div class="label_head">
-                    <div class="label_title">活动内容</div>
+                    <div class="label_title">详情</div>
                 </div>
                 <div class="about_con">
                     <ul class="label_pad mTop10">
-                        <div>主&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;题：{{ activity.title }}</div>
-                        <div>发&nbsp;&nbsp;起&nbsp;&nbsp;者：{{ activity.sponsor }}</div>
-                        <div>开始时间：{{ activity.start | date:"Y-m-d"}}</div>
-                        <div>结束时间：{{ activity.end | date:"Y-m-d" }}</div>
-                        <div>活动地址：{{ activity.address }}</div>
+                        <div>主&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;题：{{ donate.title }}</div>
+                        <div>捐助类型：{{ donate.type.name }}</div>
+                        <div>时&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;间：{{ donate.time | date:"Y-m-d" }}</div>
                         <div>主要内容：</div>
-                        <div class="news_detail_cont"> {{ activity.text }}</div>
+                        <div class="news_detail_cont"> {{ donate.text }}</div>
                     </ul>
                 </div>
             </div>
@@ -35,17 +33,6 @@
             <div class="label_contents">
                 <h1><a href="">慈善活动</a></h1>
                 <h1><a href="">社会捐助</a></h1>
-            </div>
-            <div class="label_head mTop10">
-                <div class="label_title">联系我们</div>
-            </div>
-            <div class="label_contents">
-                <ul class="label_pad mTop10">
-                    <div>地 址：XX市XX路XX号10楼</div>
-                    <div>电 话：000-000000</div>
-                    <div>传 真：000-000000</div>
-                    <div>邮 箱：123456@XX.com</div>
-                </ul>
             </div>
         </div>
         <div class="clear"></div>

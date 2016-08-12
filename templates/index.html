@@ -8,7 +8,7 @@
                 </div>
                 <ul class="label_pad mTop10">
                     {% for item in join %}
-                        <li><a href="{{ item.id }}/" class="s">{{ item.name }}</a></li>
+                        <li><a href="/join/{{ item.id }}/" class="s">{{ item.name }}</a></li>
                     {% endfor %}
                 </ul>
             </div>
@@ -18,7 +18,7 @@
                 </div>
                 <ul class="label_pad mTop10">
                     {% for item in donate %}
-                        <li><span>{{ item.time | date:"Y-m-d" }}</span><a href="">{{ item.title }}</a></li>
+                        <li><span>{{ item.time | date:"Y-m-d" }}</span><a href="/donate/{{ item.id }}/">{{ item.title }}</a></li>
                     {% endfor %}
                 </ul>
             </div>
@@ -69,13 +69,13 @@
                 <div class="label_content">
                     <p>
                         我们来自西安邮电大学，隶属不同学院多个专业，有不同专业知识背景，具有一定的管理学，市场营销以及计算机等方面的基础知识。我们是有责任心有上进心，有毅力有决心，是具有创新意识的朝气蓬勃的大学生。团队现有6名成员，分别来自西邮通院，电院，计院和经管院，因为公益，让我们聚在了一起，因为未来，让我们携手同行。我相信，在我们的努力下，未来，将会更加美好！<a
-                            href="about.html">[ 更多 ]</a>。</p>
+                            href="/about/">[ 更多 ]</a>。</p>
                 </div>
             </div>
             <div class="clear"></div>
             <div class="index_pro mTop10 l label">
                 <div class="label_head">
-                    <div class="label_title"><a href="list.html" class="more">更多</a>新闻动态</div>
+                    <div class="label_title"><a href="/news/" class="more">更多</a>新闻动态</div>
                 </div>
                 <ul class="label_pad">
                     {% for item in news %}
@@ -87,11 +87,11 @@
             </div>
             <div class="index_pro mTop10 mLeft10 l label">
                 <div class="label_head">
-                    <div class="label_title"><a href="list.html" class="more">更多</a>专题活动</div>
+                    <div class="label_title"><a href="/activity/" class="more">更多</a>专题活动</div>
                 </div>
                 <ul class="label_pad">
                     {% for item in activity %}
-                        <li><span>{{ item.time }}</span><a href="{{ item.url }}">{{ item.title }} </a></li>
+                        <li><span>{{ item.time }}</span><a href="/activity/{{ item.id }}">{{ item.title }} </a></li>
                     {% endfor %}
                 </ul>
             </div>
