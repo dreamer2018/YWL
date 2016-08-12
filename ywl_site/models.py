@@ -66,5 +66,6 @@ class donate(models.Model):
 
 # 图片
 class picture(models.Model):
-    explain = models.CharField(max_length=50)
-    url = models.URLField()
+    title = models.CharField(max_length=40)
+    url = models.ImageField(upload_to='./static/')
+    text = models.TextField()
