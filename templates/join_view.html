@@ -1,10 +1,42 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends "base.html" %}
+{% block main %}
+    <div class="clear"></div>
+    <div class="wt1002 fwmain">
+        <div class="fwmain_nright r mTop10">
+            <div class="label">
+                <div class="label_head">
+                    <div class="label_title">专题活动</div>
+                </div>
+                <ul class="label_pad mTop10">
+                    <li>招募地点：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ join.address }}</li>
+                    <li>工作性质：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ join.type.name }}</li>
+                    <li>机构名称：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ join.name }}</li>
+                    <li>招募职位：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ join.job }}</li>
+                    <li>招募人数：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ join.number }}</li>
+                    <li>发布时间：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ join.time | date:"Y-m-d"}}</li>
+                    <br/>
+                </ul>
+                <div class="clear"></div>
+            </div>
+        </div>
+        <div class="fwmain_nleft l mTop10">
+            <div class="label_head">
+                <div class="label_title">最新发布</div>
+            </div>
+            <div class="label_contents">
+                <h1><a href="">院所介绍</a></h1>
+                <h1><a href="">院所荣誉</a></h1>
+                <h1><a href="">领导介绍</a></h1>
+            </div>
+            <div class="label_head mTop10">
+                <div class="label_title">最多关注</div>
+            </div>
+            <div class="label_contents">
+                <h1><a href="">慈善活动</a></h1>
+                <h1><a href="">社会捐助</a></h1>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="clear"></div>
+{% endblock %}
