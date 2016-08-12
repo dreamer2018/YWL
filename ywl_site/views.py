@@ -15,7 +15,7 @@ def index(request):
         'activity': activity.objects.all(),
         'join': join.objects.all()
     }
-)
+                              )
 
 
 def newss(request):
@@ -34,7 +34,27 @@ def activitys(request):
 
 def activity_view(request, offset):
     return render_to_response('activity_view.html', {'url': '../../static/', 'current_name': '专题活动', 'id': offset,
-                                                'activity': activity.objects.get(id=offset)})
+                                                     'activity': activity.objects.get(id=offset)})
+
+
+def joins(request):
+    return render_to_response('join.html',
+                              {'current_name': '公益招募', 'url': '../static/', 'join': join.objects.all()})
+
+
+def join_view(request, offset):
+    return render_to_response('join_view.html', {'url': '../../static/', 'current_name': '公益招募', 'id': offset,
+                                                 'join': join.objects.get(id=offset)}, )
+
+
+def donates(request):
+    return render_to_response('donate.html',
+                              {'current_name': '乐捐', 'url': '../static/', 'donate': donate.objects.all()})
+
+
+def donate_view(request, offset):
+    return render_to_response('donate_view.html', {'url': '../../static/', 'current_name': '乐捐', 'id': offset,
+                                                 'donate': donate.objects.get(id=offset)}, )
 
 
 def test(request):
