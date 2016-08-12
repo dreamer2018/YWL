@@ -24,6 +24,9 @@ urlpatterns = [
     url(r'^$', index),  # 首页
     url(r'^test/$', test), url(r'^test/(\d)/$', test_plus),  # 测试
     url(r'^news/$', newss), url(r'^news/(\d)/$', news_view),  # 新闻动态
-    url(r'^activity/$', activitys), url(r'^activity/(\d)/$', activity_view)
+    url(r'^activity/$', activitys), url(r'^activity/(\d)/$', activity_view),  # 专题活动
+    url(r'^join/$', joins), url(r'^join/(\d)/$', join_view),  # 公益招募
+url(r'^donate/$', donates), url(r'^donate/(\d)/$', donate_view),  # 乐捐
+
 
 ]
