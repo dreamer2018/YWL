@@ -5,7 +5,7 @@
         <div class="fwmain_nright r mTop10">
             <div class="label">
                 <div class="label_head">
-                    <div class="label_title">专题活动</div>
+                    <div class="label_title">公益招募</div>
                 </div>
                 <ul class="label_pad mTop10">
                     <li>招募地点：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ join.address }}</li>
@@ -13,7 +13,7 @@
                     <li>机构名称：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ join.name }}</li>
                     <li>招募职位：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ join.job }}</li>
                     <li>招募人数：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ join.number }}</li>
-                    <li>发布时间：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ join.time | date:"Y-m-d"}}</li>
+                    <li>发布时间：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ join.time | date:"Y-m-d" }}</li>
                     <br/>
                 </ul>
                 <div class="clear"></div>
@@ -24,19 +24,19 @@
                 <div class="label_title">最新发布</div>
             </div>
             <div class="label_contents">
-                <h1><a href="">院所介绍</a></h1>
-                <h1><a href="">院所荣誉</a></h1>
-                <h1><a href="">领导介绍</a></h1>
+                {% for item in new %}
+                    <h1><a href="/join/{{ item.id }}/">{{ item.name }}</a></h1>
+                {% endfor %}
             </div>
             <div class="label_head mTop10">
                 <div class="label_title">最多关注</div>
             </div>
             <div class="label_contents">
-                <h1><a href="">慈善活动</a></h1>
-                <h1><a href="">社会捐助</a></h1>
+                {% for item in hot %}
+                    <h1><a href="/join/{{ item.id }}/">{{ item.name }}</a></h1>
+                {% endfor %}
             </div>
+            <div class="clear"></div>
         </div>
         <div class="clear"></div>
-    </div>
-    <div class="clear"></div>
 {% endblock %}

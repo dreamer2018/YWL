@@ -37,10 +37,9 @@
         <div class="fwmain_left l">
             <div class="www51buycom l">
                 <ul class="51buypic">
-                    <li><a href=""><img src="{{ url }}/images/001.jpg"/></a></li>
-                    <li><a href=""><img src="{{ url }}/images/002.jpg"/></a></li>
-                    <li><a href=""><img src="{{ url }}/images/003.jpg"/></a></li>
-                    <li><a href=""><img src="{{ url }}/images/004.jpg"/></a></li>
+                    {% for item in about %}
+                        <li><a href=""><img src="{{ item.url }}"/></a></li>
+                    {% endfor %}
                 </ul>
                 <div class="num">
                     <ul></ul>
@@ -102,10 +101,9 @@
                 <div id="demox">
                     <div id="demoxList">
                         <div id="demo1x">
-                            <a href=""><img src="{{ url }}/images/001.jpg"/><br/>设施</a><a href=""><img
-                                src="{{ url }}/images/002.jpg"/><br/>设施</a>
-                            <a href=""><img src="{{ url }}/images/003.jpg"/><br/>设施</a> <a href=""><img
-                                src="{{ url }}/images/005.jpg"/><br/>设施</a>
+                            {% for item in picture %}
+                                <a href=""><img src="{{ item.url }}"/><br/>{{ item.title }}</a>
+                            {% endfor %}
                         </div>
                         <div id="demo2x"></div>
                         <script type="text/javascript" src="{{ url }}/js/rolling.js"></script>

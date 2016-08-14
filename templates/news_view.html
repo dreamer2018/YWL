@@ -20,30 +20,20 @@
         </div>
         <div class="fwmain_nleft l mTop10">
             <div class="label_head">
-                <div class="label_title">新闻动态</div>
+                <div class="label_title">最新发布</div>
             </div>
             <div class="label_contents">
-                <h1><a href="">院所介绍</a></h1>
-                <h1><a href="">院所荣誉</a></h1>
-                <h1><a href="">领导介绍</a></h1>
+                {% for item in new %}
+                    <h1><a href="/news/{{ item.id }}/">{{ item.title }}</a></h1>
+                {% endfor %}
             </div>
             <div class="label_head mTop10">
-                <div class="label_title">社会关爱</div>
+                <div class="label_title">最多关注</div>
             </div>
             <div class="label_contents">
-                <h1><a href="">慈善活动</a></h1>
-                <h1><a href="">社会捐助</a></h1>
-            </div>
-            <div class="label_head mTop10">
-                <div class="label_title">联系我们</div>
-            </div>
-            <div class="label_contents">
-                <ul class="label_pad mTop10">
-                    <div>地 址：XX市XX路XX号10楼</div>
-                    <div>电 话：000-000000</div>
-                    <div>传 真：000-000000</div>
-                    <div>邮 箱：123456@XX.com</div>
-                </ul>
+                {% for item in hot %}
+                    <h1><a href="/news/{{ item.id }}/">{{ item.title }}</a></h1>
+                {% endfor %}
             </div>
         </div>
         <div class="clear"></div>
