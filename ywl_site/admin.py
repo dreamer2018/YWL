@@ -1,7 +1,10 @@
 from django.contrib import admin
 from ywl_site.models import *
 
+
+
 # Register your models here.
+
 admin.site.register(news_type)
 admin.site.register(activity_type)
 admin.site.register(donate_type)
