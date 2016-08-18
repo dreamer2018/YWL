@@ -52,8 +52,12 @@ def register_info(request):
             html += '<p>日期不合法</p><br/>'
         if len(address) > 40:
             html += '<p>地址过长</p><br/>'
-
-
+        try:
+            user.objects.get(phone=phone)
+        except user.DoesNotExist:
+            pass
+        else:
+            html += '<p>手机号码已被注册，请换个手机号码重试！<p><br/>'
         if not len(html):
             u = user()
             u.name = user_name
