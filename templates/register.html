@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title></title>
+    <link href="http://o.qcloud.com/static_api/v3/assets/bootstrap-3.3.4/css/bootstrap.min.css" rel="stylesheet">
+    <!-- kendo ui css -->
+    <link href="http://o.qcloud.com/static_api/v3/assets/kendoui-2015.2.624/styles/kendo.common.min.css"
+          rel="stylesheet">
+    <link href="http://o.qcloud.com/static_api/v3/assets/kendoui-2015.2.624/styles/kendo.default.min.css"
+          rel="stylesheet">
+    <!-- font-awesome -->
+    <link href="http://o.qcloud.com/static_api/v3/assets/fontawesome/css/font-awesome.css" rel="stylesheet">
+    <!--蓝鲸提供的公用样式库 -->
+    <link href="http://o.qcloud.com/static_api/v3/bk/css/bk.css?v=1.0.1" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="{{ url }}/css/hzw-city-picker.css">
+
+    <!-- 如果要使用Bootstrap的js插件，必须先调入jQuery -->
+    <script src="http://o.qcloud.com/static_api/v3/assets/js/jquery-1.10.2.min.js"></script>
+    <!-- 包括所有bootstrap的js插件或者可以根据需要使用的js插件调用　-->
+    <script src="http://o.qcloud.com/static_api/v3/assets/bootstrap-3.3.4/js/bootstrap.min.js"></script>
+    <!-- 包括所有kendoui的js插件或者可以根据需要使用的js插件调用　-->
+    <script src="http://o.qcloud.com/static_api/v3/assets/kendoui-2015.2.624/js/kendo.all.min.js"></script>
+    <script src="http://o.qcloud.com/static_api/v3/bk/js/bk.js"></script>
+    <!-- 以下两个插件用于在IE8以及以下版本浏览器支持HTML5元素和媒体查询，如果不需要用可以移除 -->
+    <!--[if lt IE 9]>
+    <script src="http://o.qcloud.com/static_api/v3/assets/js/html5shiv.min.js"></script>
+    <script src="http://o.qcloud.com/static_api/v3/assets/js/respond.min.js"></script>
+    <![endif]-->
+    <!-- 数据埋点统计 -->
+    <script src="http://o.qcloud.com/static_api/v3/analysis.js"></script>
+</head>
+<body>
+<div class="col-sm-14">
+    <div class="king-block king-block-bordered">
+        <div class="king-block-header king-gray-light">
+            <ul class="king-block-options">
+                <li>
+                    <button type="button"><i class="fa fa-cog"></i></button>
+                </li>
+            </ul>
+            <h3 class="king-block-title">填写信息</h3>
+        </div>
+        <div class="king-block-content">
+            <form class="form-horizontal" action="index.html" id="form4_demo1">
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="validation_name">用户名</label>
+                    <div class="col-sm-7">
+                        <input class="form-control" id="validation_name" name="user_name" placeholder="用户名"
+                               type="text">
+                    </div>
+                    <span class="text-danger mt5 fl">*</span>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="validation_phone">手机号</label>
+                    <div class="col-sm-7">
+                        <input class="form-control" id="validation_phone" name="phone" placeholder="手机号"
+                               type="text" maxlength="11">
+                    </div>
+                    <span class="text-danger mt5 fl">*</span>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="validation_password">密码</label>
+                    <div class="col-sm-7">
+                        <input class="form-control" id="validation_password" name="password" placeholder="密码"
+                               type="password">
+                    </div>
+                    <span class="text-danger mt5 fl">*</span>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="validation_password_confirm">确认密码</label>
+                    <div class="col-sm-7">
+                        <input class="form-control" id="validation_password_confirm" name="password_confirm"
+                               placeholder="确认密码" type="password">
+                    </div>
+                    <span class="text-danger mt5 fl">*</span>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="birthday">出生年月</label>
+                    <div class="col-sm-7">
+                        <div class="input-group date" id="birthday" data-date="" data-date-format="dd MM yyyy"
+                             data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            <input class="form-control" size="16" type="text" value="">
+                            <input type="hidden" id="dtp_input2" value="" name="birthday">
+                            <br>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="Address-Choice">住址</label>
+                    <div class="col-sm-7">
+                        <input class="form-control" id="Address-Choice" name="address" placeholder="密码"
+                               type="text">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="introduction">个人说明</label>
+                    <div class="col-sm-7">
+                        <textarea class="form-control" rows="3" id="introduction"></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2"></label>
+                    <div class="col-sm-7">
+                        <button class="king-btn king-info" type="submit" id="btn-validate">提交</button>
+                        <input type="reset" class="king-btn king-default" value="取消">
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+<script src="http://o.qcloud.com/static_api/v3/assets/validate1.14.0/js/jquery.validate.js"></script>
+<script>
+    $(document).ready(function () {
+        //form4_demo1_js_start
+        /*添加手机号验证方法*/
+        $.validator.addMethod("phone", function (value, element, param) {
+            if (/^1\d{10}$/.test(value)) {
+                return true;
+            }
+        });
+        /* 表单验证 */
+        $('#form4_demo1').validate({
+            errorElement: 'span',
+            errorClass: 'text-danger',
+            rules: {
+                user_name: {
+                    required: true,
+                    minlength: 2
+                },
+                phone: {
+                    required: true,
+                    phone: true
+                },
+                password: {
+                    required: true,
+                    minlength: 6
+                },
+                password_confirm: {
+                    required: true,
+                    minlength: 6,
+                    equalTo: '#validation_password'
+                },
+                date: {
+                    dateISO: true,
+                    required: true
+                }
+            },
+            messages: {
+                name: "请输入姓名(至少两位)",
+                phone: "手机号必须是11数字，以1开头",
+                email: "请输入正确邮箱",
+                password: "密码数不能少于6位",
+                password_confirm: "两次密码不一致",
+                date: "日期格式：2000-01-01"
+            }
+        });
+    });
+</script>
+<script src="http://o.qcloud.com/static_api/v3/assets/datetimepicker/js/bootstrap-datetimepicker.js"></script>
+<script src="http://o.qcloud.com/static_api/v3/assets/datetimepicker/js/locales/bootstrap-datetimepicker.zh-TW.js"
+        charset="UTF-8"></script>
+<script type="text/javascript">
+    $('#birthday').datetimepicker({
+        language: 'zh-TW',
+        weekStart: 1,
+        todayBtn: true,
+        autoclose: true,
+        todayHighlight: true,
+        startView: 2,
+        minView: 2,
+        forceParse: false,
+        format: "yyyy-mm-dd"
+    });
+</script>
+<script type="text/javascript" src="{{ url }}/js/city-data.js"></script>
+<script type="text/javascript" src="{{ url }}/js/hzw-city-picker.min.js"></script>
+<script>
+    var cityPicker = new HzwCityPicker({
+        data: data,
+        target: 'Address-Choice',
+        valType: 'k-v',
+        hideCityInput: {
+            name: 'city',
+            id: 'city'
+        },
+        hideProvinceInput: {
+            name: 'province',
+            id: 'province'
+        }
+    });
+
+    cityPicker.init();
+</script>
+</body>
+</html>
