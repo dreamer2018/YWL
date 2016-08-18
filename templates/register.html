@@ -26,15 +26,23 @@
             <form class="form-horizontal" method="post" action="/register_info/" id="form4_demo1">
                 {% csrf_token %}
                 <div class="form-group">
-                    <label class="control-label col-sm-2" for="validation_name">用户名</label>
+                    <label class="control-label col-sm-2" for="nick_name">昵称：</label>
                     <div class="col-sm-7">
-                        <input class="form-control" id="validation_name" name="user_name" placeholder="用户名"
+                        <input class="form-control" id="nick_name" name="nick_name" placeholder="昵称"
                                type="text">
                     </div>
                     <span class="text-danger mt5 fl">*</span>
                 </div>
                 <div class="form-group">
-                    <label class="control-label col-sm-2" for="validation_phone">手机号</label>
+                    <label class="control-label col-sm-2" for="read_name">真实姓名：</label>
+                    <div class="col-sm-7">
+                        <input class="form-control" id="read_name" name="real_name" placeholder="真实姓名"
+                               type="text">
+                    </div>
+                    <span class="text-danger mt5 fl">*</span>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="validation_phone">手机号：</label>
                     <div class="col-sm-7">
                         <input class="form-control" id="validation_phone" name="phone" placeholder="手机号"
                                type="text" maxlength="11">
@@ -42,7 +50,15 @@
                     <span class="text-danger mt5 fl">*</span>
                 </div>
                 <div class="form-group">
-                    <label class="control-label col-sm-2" for="validation_password">密码</label>
+                    <label class="control-label col-sm-2" for="email">邮箱：</label>
+                    <div class="col-sm-7">
+                        <input class="form-control" id="email" name="email" placeholder="邮箱"
+                               type="text">
+                    </div>
+                    <span class="text-danger mt5 fl">*</span>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="validation_password">密码：</label>
                     <div class="col-sm-7">
                         <input class="form-control" id="validation_password" name="password" placeholder="密码"
                                type="password">
@@ -50,7 +66,7 @@
                     <span class="text-danger mt5 fl">*</span>
                 </div>
                 <div class="form-group">
-                    <label class="control-label col-sm-2" for="validation_password_confirm">确认密码</label>
+                    <label class="control-label col-sm-2" for="validation_password_confirm">确认密码：</label>
                     <div class="col-sm-7">
                         <input class="form-control" id="validation_password_confirm" name="password_confirm"
                                placeholder="确认密码" type="password">
@@ -58,7 +74,7 @@
                     <span class="text-danger mt5 fl">*</span>
                 </div>
                 <div class="form-group">
-                    <label class="control-label col-sm-2" for="birthday">出生年月</label>
+                    <label class="control-label col-sm-2" for="birthday">生日：</label>
                     <div class="col-sm-7">
                         <div class="input-group date" id="birthday" data-date="" data-date-format="dd MM yyyy"
                              data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
@@ -72,14 +88,24 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="control-label col-sm-2" for="Address-Choice">住址</label>
+                    <label class="control-label col-sm-2" for="Address-Choice">学历：</label>
                     <div class="col-sm-7">
-                        <input class="form-control" id="Address-Choice" name="address" placeholder="密码"
+                        <select class="select2_box" style="width:300px;" name="education">
+                            {% for item in education %}
+                                <option value="{{ item.id }}">{{ item.name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="Address-Choice">常住地址：</label>
+                    <div class="col-sm-7">
+                        <input class="form-control" id="Address-Choice" name="address" placeholder="常住地址"
                                type="text">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="control-label col-sm-2" for="introduction">个人说明</label>
+                    <label class="control-label col-sm-2" for="introduction">个人说明：</label>
                     <div class="col-sm-7">
                         <textarea class="form-control" rows="3" id="introduction" name="introduction"></textarea>
                     </div>
@@ -126,7 +152,12 @@
             errorElement: 'span',
             errorClass: 'text-danger',
             rules: {
-                user_name: {
+                nick_name: {
+                    required: true,
+                    minlength: 2,
+                    maxlength: 20
+                },
+                real_name: {
                     required: true,
                     minlength: 2,
                     maxlength: 20
@@ -134,6 +165,10 @@
                 phone: {
                     required: true,
                     phone: true
+                },
+                email: {
+                    required: true,
+                    email: true
                 },
                 password: {
                     required: true,
@@ -152,9 +187,10 @@
                 }
             },
             messages: {
-                user_name: "请输入姓名(至少2位,至多20位)",
+                nick_name: "请输入昵称(至少2位,至多20位)",
+                real_name: "请输入真实姓名(至少2位,至多20位)",
                 phone: "手机号必须是11数字，以1开头",
-                email: "请输入正确邮箱",
+                email: "请输入正确邮箱地址",
                 password: "密码数不能少于6位,不能多于20位",
                 password_confirm: "两次密码不一致",
                 date: "日期格式：2000-01-01"

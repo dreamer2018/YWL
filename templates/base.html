@@ -22,7 +22,7 @@
         <div class="r">
             <div class="toplink">
                 {% if user %}
-                    <a href="/user/{{ user.id }}">{{ user.name }}</a> | <a href="/logout/">注销</a>
+                    <p>你好，{{ user.nick_name }}<a href="/user/{{ user.id }}">个人中心</a> | <a href="/logout/">注销</a></p>
                 {% else %}
                     <a href="/login/">登录</a> | <a href="/register/">注册</a>
                 {% endif %}
@@ -79,9 +79,8 @@
 
 <!--网站页脚-->
 <div class="foot">
-    <span>copyright2015-2016 </span>
-    <a href="" target="_target" title="Sitemap">网站地图</a>
-    <a href="" target="_target" title="后台登录">后台登录</a>
+    <span>Copyright&copy;2014-2016 益未来 All Rights Reserved.</span>
+    <a href="/admin/" target="_target" title="后台登录">后台登录</a>
 </div>
 <!--网站页脚 结束-->
 
