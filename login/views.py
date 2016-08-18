@@ -14,10 +14,25 @@ from login.models import user
 def login(request):
     return render_to_response('login.html', {
         'url': '../static/',
-    }
-                              )
+    }, context_instance=RequestContext(request))
 
 
+def login_info(request):
+    html = ""
+    if request.POST:
+        phone = request.POST['phone']
+        passwd = request.POST['password']
+        try:
+            u = user.objects.get(phone=phone)
+        except user.DoesNotExist:
+            html += '<html><body><h2>帐号不存在，请<a href = "/login/ ">重试</a>或去<a href = "/register/">注册</a></h2></body>'
+        else:
+            if u.passwd == passwd:
+                html += '<html><head><meta http-equiv="refresh" content="5;url=/"><head><body><h2>登录成功，' \
+                        '正在跳转.......</h2></body>'
+            else:
+                html += '<h2>帐号或密码错误，请<a href = "/login/ ">重试</a></h2>'
+        return HttpResponse(html)
 # 注册页面
 
 def register(request):

@@ -9,8 +9,9 @@
 <section class="container">
     <div class="login">
         <h1>用户登录</h1>
-        <form method="post" action="login_info">
-            <p><input type="text" name="login" placeholder="邮箱"></p>
+        <form method="post" action="/login_info/">
+             {% csrf_token %}
+            <p><input type="text" name="phone" placeholder="手机号"></p>
             <p><input type="password" name="password" placeholder="密码"></p>
             <p class="remember_me">
                 <label>
