@@ -38,5 +38,6 @@ urlpatterns += [
 # APP： login
 urlpatterns += [
     url(r'^login/$', 'login.views.login'),  # 登录
-    url(r'^register/$', 'login.views.register')  # 注册
+    url(r'^register/$', 'login.views.register'),  # 注册
+    url(r'^register_info/$', 'login.views.register_info'),  # 注册信息
 ]

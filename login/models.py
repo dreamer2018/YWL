@@ -16,3 +16,6 @@ class user(models.Model):
     birthday = models.CharField(max_length=10, blank=True)  # 生日
     address = models.CharField(max_length=40, blank=True)  # 地址
     about = models.TextField()  # 个人说明
+
+    def __unicode__(self):
+        return u' %s ' % self.name

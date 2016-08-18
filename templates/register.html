@@ -2,7 +2,8 @@
 <html>
 <head>
     <meta charset="utf-8"/>
-    <title></title>
+    <title>用户注册</title>
+    <link rel="shortcut icon" href="{{ url }}/images/favicon.ico"/>
     <link href="http://o.qcloud.com/static_api/v3/assets/bootstrap-3.3.4/css/bootstrap.min.css" rel="stylesheet">
     <!-- kendo ui css -->
     <link href="http://o.qcloud.com/static_api/v3/assets/kendoui-2015.2.624/styles/kendo.common.min.css"
@@ -13,24 +14,17 @@
     <link href="http://o.qcloud.com/static_api/v3/assets/fontawesome/css/font-awesome.css" rel="stylesheet">
     <!--蓝鲸提供的公用样式库 -->
     <link href="http://o.qcloud.com/static_api/v3/bk/css/bk.css?v=1.0.1" rel="stylesheet">
-
     <link rel="stylesheet" type="text/css" href="{{ url }}/css/hzw-city-picker.css">
-
-
 </head>
 <body>
 <div class="col-sm-14">
     <div class="king-block king-block-bordered">
         <div class="king-block-header king-gray-light">
-            <ul class="king-block-options">
-                <li>
-                    <button type="button"><i class="fa fa-cog"></i></button>
-                </li>
-            </ul>
             <h3 class="king-block-title">注册信息</h3>
         </div>
         <div class="king-block-content">
-            <form class="form-horizontal" action="index.html" id="form4_demo1">
+            <form class="form-horizontal" method="post" action="/register_info/" id="form4_demo1">
+                {% csrf_token %}
                 <div class="form-group">
                     <label class="control-label col-sm-2" for="validation_name">用户名</label>
                     <div class="col-sm-7">
@@ -87,7 +81,7 @@
                 <div class="form-group">
                     <label class="control-label col-sm-2" for="introduction">个人说明</label>
                     <div class="col-sm-7">
-                        <textarea class="form-control" rows="3" id="introduction"></textarea>
+                        <textarea class="form-control" rows="3" id="introduction" name="introduction"></textarea>
                     </div>
                 </div>
                 <div class="form-group">
@@ -98,10 +92,10 @@
                     </div>
                 </div>
             </form>
-
         </div>
     </div>
 </div>
+
 <!-- 如果要使用Bootstrap的js插件，必须先调入jQuery -->
 <script src="http://o.qcloud.com/static_api/v3/assets/js/jquery-1.10.2.min.js"></script>
 <!-- 包括所有bootstrap的js插件或者可以根据需要使用的js插件调用　-->
@@ -117,6 +111,7 @@
 <!-- 数据埋点统计 -->
 <script src="http://o.qcloud.com/static_api/v3/analysis.js"></script>
 <script src="http://o.qcloud.com/static_api/v3/assets/validate1.14.0/js/jquery.validate.js"></script>
+
 <script>
     $(document).ready(function () {
         //form4_demo1_js_start
@@ -133,7 +128,8 @@
             rules: {
                 user_name: {
                     required: true,
-                    minlength: 2
+                    minlength: 2,
+                    maxlength: 20
                 },
                 phone: {
                     required: true,
@@ -141,11 +137,13 @@
                 },
                 password: {
                     required: true,
-                    minlength: 6
+                    minlength: 6,
+                    maxlength: 20
                 },
                 password_confirm: {
                     required: true,
                     minlength: 6,
+                    maxlength: 20,
                     equalTo: '#validation_password'
                 },
                 date: {
@@ -154,10 +152,10 @@
                 }
             },
             messages: {
-                name: "请输入姓名(至少两位)",
+                user_name: "请输入姓名(至少2位,至多20位)",
                 phone: "手机号必须是11数字，以1开头",
                 email: "请输入正确邮箱",
-                password: "密码数不能少于6位",
+                password: "密码数不能少于6位,不能多于20位",
                 password_confirm: "两次密码不一致",
                 date: "日期格式：2000-01-01"
             }
@@ -196,7 +194,6 @@
             id: 'province'
         }
     });
-
     cityPicker.init();
 </script>
 </body>
