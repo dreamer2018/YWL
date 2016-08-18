@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: UTF-8 -*-
 # Create your views here.
+from django.http import HttpResponseRedirect
 from django.shortcuts import render_to_response
 
 from ywl_site.models import *
@@ -41,7 +42,6 @@ def news_view(request, offset):
         'hot': news.objects.order_by('read')[0:5]
     }
                               )
-
 
 def activitys(request):
     return render_to_response('activity.html', {

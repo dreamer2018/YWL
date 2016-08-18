@@ -2,7 +2,7 @@
 # -*- coding: UTF-8 -*-
 
 
-from django.http import HttpResponse
+from django.http import HttpResponse,HttpResponseRedirect
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 
@@ -16,7 +16,7 @@ def login(request):
         'url': '../static/',
     }, context_instance=RequestContext(request))
 
-
+# 登录信息验证界面
 def login_info(request):
     html = ""
     if request.POST:
@@ -28,13 +28,18 @@ def login_info(request):
             html += '<html><body><h2>帐号不存在，请<a href = "/login/ ">重试</a>或去<a href = "/register/">注册</a></h2></body>'
         else:
             if u.passwd == passwd:
+                request.session['id'] = u.id
                 html += '<html><head><meta http-equiv="refresh" content="5;url=/"><head><body><h2>登录成功，' \
                         '正在跳转.......</h2></body>'
             else:
                 html += '<h2>帐号或密码错误，请<a href = "/login/ ">重试</a></h2>'
         return HttpResponse(html)
-# 注册页面
 
+# 注销
+def logout(request):
+    del request.session['id']
+    return HttpResponseRedirect('/login/')
+# 注册页面
 def register(request):
     return render_to_response('register.html', {
         'url': '../static/'
