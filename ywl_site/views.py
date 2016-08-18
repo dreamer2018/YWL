@@ -1,14 +1,14 @@
 #!/usr/bin/env python
 # -*- coding: UTF-8 -*-
 # Create your views here.
-from django.http import HttpResponseRedirect
 from django.shortcuts import render_to_response
 
+from login.models import *
 from ywl_site.models import *
 
 
 def index(request):
-    return render_to_response('index.html', {
+    render = {
         'current_name': '首页',
         'url': '../static/',
         'donate': donate.objects.all(),
@@ -18,22 +18,26 @@ def index(request):
         'about': picture.objects.all()[0:4],
         'picture': picture.objects.all(),
     }
-                              )
+    if request.session.has_key('id'):
+        render['user'] = user.objects.get(id=request.session['id'])
+    return render_to_response('index.html', render)
 
 
 def newss(request):
-    return render_to_response('news.html', {
+    render = {
         'current_name': '新闻动态',
         'url': '../static/',
         'news': news.objects.all(),
         'new': news.objects.all()[0:5],
         'hot': news.objects.order_by('read')[0:5]
     }
-                              )
+    if request.session.has_key('id'):
+        render['user'] = user.objects.get(id=request.session['id'])
+    return render_to_response('news.html', render)
 
 
 def news_view(request, offset):
-    return render_to_response('news_view.html', {
+    render = {
         'url': '../../static/',
         'current_name': '新闻动态',
         'id': offset,
@@ -41,21 +45,26 @@ def news_view(request, offset):
         'new': news.objects.all()[0:5],
         'hot': news.objects.order_by('read')[0:5]
     }
-                              )
+    if request.session.has_key('id'):
+        render['user'] = user.objects.get(id=request.session['id'])
+    return render_to_response('news_view.html', render)
+
 
 def activitys(request):
-    return render_to_response('activity.html', {
+    render = {
         'current_name': '专题活动',
         'url': '../static/',
         'activity': activity.objects.all(),
         'new': activity.objects.all()[0:5],
         'hot': activity.objects.all()[0:5]
     }
-                              )
+    if request.session.has_key('id'):
+        render['user'] = user.objects.get(id=request.session['id'])
+    return render_to_response('activity.html', render)
 
 
 def activity_view(request, offset):
-    return render_to_response('activity_view.html', {
+    render = {
         'url': '../../static/',
         'current_name': '专题活动',
         'id': offset,
@@ -63,22 +72,26 @@ def activity_view(request, offset):
         'new': activity.objects.all()[0:5],
         'hot': activity.objects.all()[0:5]
     }
-                              )
+    if request.session.has_key('id'):
+        render['user'] = request.session['id']
+    return render_to_response('activity_view.html', render)
 
 
 def joins(request):
-    return render_to_response('join.html', {
+    render = {
         'current_name': '公益招募',
         'url': '../static/',
         'join': join.objects.all(),
         'new': join.objects.all()[0:5],
         'hot': join.objects.all()[0:5],
     }
-                              )
+    if request.session.has_key('id'):
+        render['user'] = user.objects.get(id=request.session['id'])
+    return render_to_response('join.html', render)
 
 
 def join_view(request, offset):
-    return render_to_response('join_view.html', {
+    render = {
         'url': '../../static/',
         'current_name': '公益招募',
         'id': offset,
@@ -86,22 +99,26 @@ def join_view(request, offset):
         'new': join.objects.all()[0:5],
         'hot': join.objects.all()[0:5],
     }
-                              )
+    if request.session.has_key('id'):
+        render['user'] = user.objects.get(id=request.session['id'])
+    return render_to_response('join_view.html', render)
 
 
 def donates(request):
-    return render_to_response('donate.html', {
+    render = {
         'current_name': '乐捐',
         'url': '../static/',
         'donate': donate.objects.all(),
         'new': donate.objects.all()[0:5],
         'hot': donate.objects.all()[0:5],
     }
-                              )
+    if request.session.has_key('id'):
+        render['user'] = user.objects.get(id=request.session['id'])
+    return render_to_response('donate.html', render)
 
 
 def donate_view(request, offset):
-    return render_to_response('donate_view.html', {
+    render = {
         'url': '../../static/',
         'current_name': '乐捐',
         'id': offset,
@@ -109,27 +126,33 @@ def donate_view(request, offset):
         'new': donate.objects.all()[0:5],
         'hot': donate.objects.all()[0:5],
     }
-                              )
+    if request.session.has_key('id'):
+        render['user'] = user.objects.get(id=request.session['id'])
+    return render_to_response('donate_view.html', render)
 
 
 def about(request):
-    return render_to_response('about.html', {
+    render = {
         'current_name': '关于我们',
         'url': '../static/',
     }
-                              )
+    if request.session.has_key('id'):
+        render['user'] = user.objects.get(id=request.session['id'])
+    return render_to_response('about.html', render)
 
 
 def contact(request):
-    return render_to_response('contact.html', {
+    render = {
         'current_name': '联系我们',
         'url': '../static/',
     }
-                              )
+    if request.session.has_key('id'):
+        render['user'] = user.objects.get(id=request.session['id'])
+    return render_to_response('contact.html', render)
 
 
 def test(request):
-    return render_to_response('test.html', {
+    render = {
         'url': '../static/',
         'cuttent_name': '新闻动态',
         'donate': donate.objects.all(),
@@ -137,14 +160,18 @@ def test(request):
         'activity': activity.objects.all(),
         'join': join.objects.all()
     }
-                              )
+    if request.session.has_key('id'):
+        render['user'] = user.objects.get(id=request.session['id'])
+    return render_to_response('test.html', render)
 
 
 def test_plus(request, offset):
-    return render_to_response('news_view.html', {
+    render = {
         'url': '../../static/',
         'current_name': '新闻动态',
         'id': offset,
         'news': news.objects.get(id=offset)
     }
-                              )
+    if request.session.has_key('id'):
+        render['user'] = user.objects.get(id=request.session['id'])
+    return render_to_response('news_view.html', render)
