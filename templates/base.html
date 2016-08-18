@@ -21,18 +21,15 @@
     <div class="wt1002">
         <div class="r">
             <div class="toplink">
-                <a href="" onclick="this.style.behavior='url(#default#homepage)';this.setHomePage('');">设为首页</a> |
-                <a href="javascript:window.external.AddFavorite('','益未来')">加入收藏</a>
-            </div>
-            <div class="topsearch">
-                <form action="" method="post" id="form1">
-                    <input type="text" value="" class="tetPut" id="searchnew" name="searchnew"/>
-                    <input name="提交" type="submit" class="tetBut" value=""/>
-                </form>
+                {% if user %}
+                    <a href="/user/{{ user.id }}">{{ user.name }}</a> | <a href="/logout/">注销</a>
+                {% else %}
+                    <a href="/login/">登录</a> | <a href="/register/">注册</a>
+                {% endif %}
             </div>
         </div>
         <div class="l">
-            <a href="#" title="益未来"><img src="{{ url }}/images/logo.gif"/></a>
+            <a href="#" title="益未来"><img src="{{ url }}images/logo.gif"/></a>
         </div>
         <div class="clear"></div>
     </div>
