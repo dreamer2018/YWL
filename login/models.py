@@ -9,13 +9,23 @@ from django.db import models
 
 
 # Create your models here.
-class user(models.Model):
-    name = models.CharField(max_length=20)  # 用户名
-    phone = models.CharField(max_length=11, unique=True)  # 手机号码
-    passwd = models.CharField(max_length=20)  # 密码
-    birthday = models.CharField(max_length=10, blank=True)  # 生日
-    address = models.CharField(max_length=40, blank=True)  # 地址
-    about = models.TextField()  # 个人说明
+class education(models.Model):
+    name = models.CharField(max_length=10)
 
     def __unicode__(self):
-        return u' %s ' % self.name
+        return u'%s' % self.name
+
+
+class user(models.Model):
+    nick_name = models.CharField(max_length=20)  # 昵称
+    real_name = models.CharField(max_length=20)  # 真名
+    phone = models.CharField(max_length=11, unique=True)  # 手机号码
+    email = models.EmailField()  # 常用邮箱
+    passwd = models.CharField(max_length=20)  # 密码
+    birthday = models.CharField(max_length=10, blank=True)  # 生日
+    address = models.CharField(max_length=40, blank=True)  # 常住地址
+    education = models.IntegerField()  # 学历
+    about = models.TextField(blank=True)  # 个人说明
+
+    def __unicode__(self):
+        return u' %s ' % self.nick_name
