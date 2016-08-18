@@ -40,5 +40,6 @@ urlpatterns += [
     url(r'^login/$', 'login.views.login'),  # 登录
     url(r'^register/$', 'login.views.register'),  # 注册
     url(r'^register_info/$', 'login.views.register_info'),  # 注册信息
-    url(r'^login_info/$','login.views.login_info') # 登录信息
+    url(r'^login_info/$', 'login.views.login_info'),  # 登录信息
+    url(r'^logout/$', 'login.views.logout'),  # 注销
 ]
