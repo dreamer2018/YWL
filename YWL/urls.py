@@ -33,6 +33,7 @@ urlpatterns += [
     url(r'^donate/$', donates), url(r'^donate/(\d)/$', donate_view),  # 乐捐
     url(r'^about/$', about),  # 关于我们
     url(r'^contact/$', contact),  # 联系我们
+    url(r'^picture/(\d)/$', pictures),  # 图说动态
 ]
 
 # APP： login
