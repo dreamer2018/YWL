@@ -74,7 +74,7 @@ class join(models.Model):
     time = models.DateTimeField()  # 发布时间
 
     def __unicode__(self):
-        return self.id
+        return  u'%s' % self.name
 
 
 # 公益捐赠
@@ -91,7 +91,7 @@ class donate(models.Model):
 # 图片
 class picture(models.Model):
     title = models.CharField(max_length=40)
-    url = models.ImageField(upload_to='./static/')
+    url = models.URLField()
     text = models.TextField()
 
     def __unicode__(self):

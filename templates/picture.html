@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block main %}
+    <div class="clear"></div>
+    <div class="wt1002 fwmain">
+        <div class="fwmain_nright r mTop10">
+            <div class="label">
+                <div class="label_head">
+                    <div class="label_title">图闻</div>
+                </div>
+                <div class="about_con">
+                    <img src="{{ picture.url }}">
+                    <p>{{ picture.text }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="fwmain_nleft l mTop10">
+            <div class="label_head mTop10">
+                <div class="label_title">联系我们</div>
+            </div>
+            <div class="label_contents">
+                <ul class="label_pad mTop10">
+                    <div>地 址：XX市XX路XX号10楼</div>
+                    <div>电 话：000-000000</div>
+                    <div>传 真：000-000000</div>
+                    <div>邮 箱：123456@XX.com</div>
+                </ul>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="clear"></div>
+{% endblock %}
