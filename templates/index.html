@@ -38,7 +38,7 @@
             <div class="www51buycom l">
                 <ul class="51buypic">
                     {% for item in about %}
-                        <li><a href=""><img src="{{ item.url }}"/></a></li>
+                        <li><a href="/picture/{{ item.id }}"><img src="{{ item.url }}"/></a></li>
                     {% endfor %}
                 </ul>
                 <div class="num">
@@ -102,7 +102,7 @@
                     <div id="demoxList">
                         <div id="demo1x">
                             {% for item in picture %}
-                                <a href=""><img src="{{ item.url }}"/><br/>{{ item.title }}</a>
+                                <a href="/picture/{{ item.id }}"><img src="{{ item.url }}"/><br/>{{ item.title }}</a>
                             {% endfor %}
                         </div>
                         <div id="demo2x"></div>
