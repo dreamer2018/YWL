@@ -43,8 +43,12 @@ def news_view(request, offset):
         'id': offset,
         'news': news.objects.get(id=offset),
         'new': news.objects.all()[0:5],
-        'hot': news.objects.order_by('read')[0:5]
+        'hot': news.objects.order_by('-read')[0:5]
     }
+    n = news.objects.get(id=offset)
+    n.read += 1
+    n.save()
+
     if request.session.has_key('id'):
         render['user'] = user.objects.get(id=request.session['id'])
     return render_to_response('news_view.html', render)
@@ -73,7 +77,7 @@ def activity_view(request, offset):
         'hot': activity.objects.all()[0:5]
     }
     if request.session.has_key('id'):
-        render['user'] = request.session['id']
+        render['user'] = user.objects.get(id=request.session['id'])
     return render_to_response('activity_view.html', render)
 
 
@@ -163,6 +167,17 @@ def test(request):
     if request.session.has_key('id'):
         render['user'] = user.objects.get(id=request.session['id'])
     return render_to_response('test.html', render)
+
+
+def pictures(request, offset):
+    render = {
+        'url': '../../static/',
+        'current_name': '新闻动态',
+        'picture': picture.objects.get(id=offset)
+    }
+    if request.session.has_key('id'):
+        render['user'] = user.objects.get(id=request.session['id'])
+    return render_to_response('picture.html', render)
 
 
 def test_plus(request, offset):

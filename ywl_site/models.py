@@ -74,7 +74,7 @@ class join(models.Model):
     time = models.DateTimeField()  # 发布时间
 
     def __unicode__(self):
-        return  u'%s' % self.name
+        return u'%s' % self.name
 
 
 # 公益捐赠
