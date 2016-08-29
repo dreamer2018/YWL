@@ -155,17 +155,10 @@ def contact(request):
     return render_to_response('contact.html', render)
 
 
-def test(request):
+def test(request, offset):
     render = {
-        'url': '../static/',
-        'cuttent_name': '新闻动态',
-        'donate': donate.objects.all(),
-        'news': news.objects.all(),
-        'activity': activity.objects.all(),
-        'join': join.objects.all()
+        'activity': activity.objects.get(id=offset),
     }
-    if request.session.has_key('id'):
-        render['user'] = user.objects.get(id=request.session['id'])
     return render_to_response('test.html', render)
 
 
