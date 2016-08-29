@@ -106,3 +106,7 @@ def register_info(request):
         html = '<html><head><meta http-equiv="refresh" content="3;url=/login/"><head><body><h2>注成功，正在跳转.......' \
                '</h2></body>'
     return HttpResponse(html)
+
+
+def develop(request, offset):
+    return render_to_response('develop.html')

@@ -43,5 +43,5 @@ urlpatterns += [
     url(r'^register_info/$', 'login.views.register_info'),  # 注册信息
     url(r'^login_info/$', 'login.views.login_info'),  # 登录信息
     url(r'^logout/$', 'login.views.logout'),  # 注销
+    url(r'^user/(\d)/$', 'login.views.develop'),
 ]
-
