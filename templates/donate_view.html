@@ -13,7 +13,7 @@
                         <div>捐助类型：{{ donate.type.name }}</div>
                         <div>时&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;间：{{ donate.time | date:"Y-m-d" }}</div>
                         <div>主要内容：</div>
-                        <div class="news_detail_cont"> {{ donate.text }}</div>
+                        <div class="news_detail_cont"> {{ donate.text | safe }}</div>
                     </ul>
                 </div>
             </div>

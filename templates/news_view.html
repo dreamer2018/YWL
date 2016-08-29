@@ -14,7 +14,7 @@
                         <div class="news_detail_from">来源:<a href="{{ news.url }}">{{ news.url }}</a></div>
                         <div class="news_detail_tool">点击数:{{ news.read }} 作者:{{ news.author }}</div>
                     </div>
-                    <div class="news_detail_cont"> {{ news.text }}</div>
+                    <div class="news_detail_cont"> {{ news.text | safe }}</div>
                 </div>
             </div>
         </div>
@@ -32,7 +32,7 @@
             </div>
             <div class="label_contents">
                 {% for item in hot %}
-                    <h1><a href="/news/{{ item.id }}/">{{ item.title }}</a></h1>
+                    <h1><a href="/news/{{ item.id }}/">{{ item.title}}</a></h1>
                 {% endfor %}
             </div>
         </div>

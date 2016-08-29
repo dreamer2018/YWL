@@ -15,7 +15,7 @@
                         <div>结束时间：{{ activity.end | date:"Y-m-d" }}</div>
                         <div>活动地址：{{ activity.address }}</div>
                         <div>主要内容：</div>
-                        <div class="news_detail_cont"> {{ activity.text }}</div>
+                        <div class="news_detail_cont">{{ activity.text | safe }}</div>
                     </ul>
                 </div>
             </div>

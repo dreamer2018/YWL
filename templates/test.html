@@ -1,119 +1,16 @@
-{% extends "base.html" %}
-{% block main %}
-    <div class="wt1002 fwmain">
-        <div class="fwmain_right r">
-            <div class="right_List">
-                <div class="label_head">
-                    <div class="label_title"><a href="">招募</a></div>
-                </div>
-                <ul class="label_pad mTop10">
-                    {% for item in join %}
-                        <li><a href="{{ item.id }}/" class="s">{{ item.name }}</a></li>
-                    {% endfor %}
-                </ul>
-            </div>
-            <div class="right_List mTop10">
-                <div class="label_head">
-                    <div class="label_title"><a href="">爱心榜</a></div>
-                </div>
-                <ul class="label_pad mTop10">
-                    {% for item in donate %}
-                        <li><span>{{ item.time | date:"Y-m-d" }}</span><a href="">{{ item.title }}</a></li>
-                    {% endfor %}
-                </ul>
-            </div>
-            <div class="right_List mTop10">
-                <div class="label_head">
-                    <div class="label_title">联系我们</div>
-                </div>
-                <ul class="label_pad mTop10">
-                    <div>地 址：西安市长安区西安邮电大学长安校区西区</div>
-                    <div>电 话：000-000000</div>
-                    <div>传 真：000-000000</div>
-                    <div>邮 箱：123456@XX.com</div>
-                </ul>
-            </div>
-        </div><!--right-->
-        <div class="fwmain_left l">
-            <div class="www51buycom l">
-                <ul class="51buypic">
-                    <li><a href=""><img src="../static/images/001.jpg"/></a></li>
-                    <li><a href=""><img src="../static/images/002.jpg"/></a></li>
-                    <li><a href=""><img src="../static/images/003.jpg"/></a></li>
-                    <li><a href=""><img src="../static/images/004.jpg"/></a></li>
-                </ul>
-                <div class="num">
-                    <ul></ul>
-                </div>
-            </div>
-            <script>
-                /*鼠标移过某个按钮 高亮显示*/
-                $(".prev,.next").hover(function () {
-                    $(this).fadeTo("show", 0.7);
-                }, function () {
-                    $(this).fadeTo("show", 0.1);
-                })
-                $(".www51buycom").slide({
-                    titCell: ".num ul",
-                    mainCell: ".51buypic",
-                    effect: "fold",
-                    autoPlay: true,
-                    delayTime: 1500,
-                    autoPage: true
-                });
-            </script>
-            <div class="index_abouts r label">
-                <div class="label_head">
-                    <div class="label_title">益未来团队简介</div>
-                </div>
-                <div class="label_content">
-                    <p>
-                        我们来自西安邮电大学，隶属不同学院多个专业，有不同专业知识背景，具有一定的管理学，市场营销以及计算机等方面的基础知识。我们是有责任心有上进心，有毅力有决心，是具有创新意识的朝气蓬勃的大学生。团队现有6名成员，分别来自西邮通院，电院，计院和经管院，因为公益，让我们聚在了一起，因为未来，让我们携手同行。我相信，在我们的努力下，未来，将会更加美好！<a
-                            href="about.html">[ 更多 ]</a>。</p>
-                </div>
-            </div>
-            <div class="clear"></div>
-            <div class="index_pro mTop10 l label">
-                <div class="label_head">
-                    <div class="label_title"><a href="list.html" class="more">更多</a>新闻动态</div>
-                </div>
-                <ul class="label_pad">
-                    {% for item in news %}
-                        <li><span>{{ item.time | date:"Y-m-d" }}</span><a href="{{ item.url }}">{{ item.title }} </a></li>
-                    {% endfor %}
-
-                </ul>
-            </div>
-            <div class="index_pro mTop10 mLeft10 l label">
-                <div class="label_head">
-                    <div class="label_title"><a href="list.html" class="more">更多</a>专题活动</div>
-                </div>
-                <ul class="label_pad">
-                    {% for item in activity %}
-                        <li><span>{{ item.time }}</span><a href="{{ item.url }}">{{ item.title }} </a></li>
-                    {% endfor %}
-
-                </ul>
-            </div>
-            <div class="index_img mTop10 l label">
-                <div class="label_head">
-                    <div class="label_title"><a href="prolist.html" class="more">更多</a>图说动态</div>
-                </div>
-                <div id="demox">
-                    <div id="demoxList">
-                        <div id="demo1x">
-                            <a href=""><img src="../static/images/001.jpg"/><br/>设施</a><a href=""><img
-                                src="../static/images/002.jpg"/><br/>设施</a>
-                            <a href=""><img src="../static/images/003.jpg"/><br/>设施</a> <a href=""><img
-                                src="../static/images/005.jpg"/><br/>设施</a>
-                        </div>
-                        <div id="demo2x"></div>
-                        <script type="text/javascript" src="../static/js/rolling.js"></script>
-                    </div>
-                </div>
-            </div>
-            <div class="clear"></div>
-        </div>
-        <div class="clear"></div>
-    </div>
-{% endblock %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>test</title>
+</head>
+<body>
+    <div>主&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;题：{{ activity.title }}</div>
+    <div>发&nbsp;&nbsp;起&nbsp;&nbsp;者：{{ activity.sponsor }}</div>
+    <div>开始时间：{{ activity.start | date:"Y-m-d" }}</div>
+    <div>结束时间：{{ activity.end | date:"Y-m-d" }}</div>
+    <div>活动地址：{{ activity.address }}</div>
+    <div>主要内容：</div>
+    <div class="news_detail_cont">{{ activity.text | safe }}</div>
+</body>
+</html>
