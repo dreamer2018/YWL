@@ -25,105 +25,99 @@
         <div class="king-block-content">
             <form class="form-horizontal" method="post" action="/register_info/" id="form4_demo1">
                 {% csrf_token %}
-                {#                <table>#}
-                {#                    {{ form.as_table }}#}
-                {#                </table>#}
-                {#                <input class="king-btn king-info" type="submit" id="btn-validate" value="提交">#}
-                {#                <input type="reset" class="king-btn king-default" value="取消">#}
-
                 <div class="form-group">
                     <label class="control-label col-sm-2" for="nick_name">昵称：</label>
                     <div class="col-sm-7">
-{#                        <input class="form-control" id="nick_name" name="nick_name" placeholder="昵称"#}
-{#                               type="text">#}
-                        {{ form.nick_name }}
+                        <input class="form-control" id="nick_name" name="nick_name" placeholder="昵称"
+                               type="text">
+{#                        {{ form.nick_name }}#}
                     </div>
                     <span class="text-danger mt5 fl">*</span>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-sm-2" for="read_name">真实姓名：</label>
                     <div class="col-sm-7">
-{#                        <input class="form-control" id="read_name" name="real_name" placeholder="真实姓名"#}
-{#                               type="text">#}
-                        {{ form.real_name }}
+                        <input class="form-control" id="read_name" name="real_name" placeholder="真实姓名"
+                               type="text">
+{#                        {{ form.real_name }}#}
                     </div>
                     <span class="text-danger mt5 fl">*</span>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-sm-2" for="validation_phone">手机号：</label>
                     <div class="col-sm-7">
-{#                        <input class="form-control" id="validation_phone" name="phone" placeholder="手机号"#}
-{#                               type="text" maxlength="11">#}
-                        {{ form.phone }}
+                        <input class="form-control" id="validation_phone" name="phone" placeholder="手机号"
+                               type="text" maxlength="11">
+{#                        {{ form.phone }}#}
                     </div>
                     <span class="text-danger mt5 fl">*</span>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-sm-2" for="email">邮箱：</label>
                     <div class="col-sm-7">
-{#                        <input class="form-control" id="email" name="email" placeholder="邮箱"#}
-{#                               type="text">#}
-                        {{ form.email }}
+                        <input class="form-control" id="email" name="email" placeholder="邮箱"
+                               type="text">
+{#                        {{ form.email }}#}
                     </div>
                     <span class="text-danger mt5 fl">*</span>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-sm-2" for="validation_password">密码：</label>
                     <div class="col-sm-7">
-{#                        <input class="form-control" id="validation_password" name="password" placeholder="密码"#}
-{#                               type="password">#}
-                        {{ form.passwd }}
+                        <input class="form-control" id="validation_password" name="password" placeholder="密码"
+                               type="password">
+{#                        {{ form.passwd }}#}
                     </div>
                     <span class="text-danger mt5 fl">*</span>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-sm-2" for="validation_password_confirm">确认密码：</label>
                     <div class="col-sm-7">
-{#                        <input class="form-control" id="validation_password_confirm" name="password_confirm"#}
-{#                               placeholder="确认密码" type="password">#}
-                        {{ form.passwd_confirm }}
+                        <input class="form-control" id="validation_password_confirm" name="password_confirm"
+                               placeholder="确认密码" type="password">
+{#                        {{ form.passwd_confirm }}#}
                     </div>
                     <span class="text-danger mt5 fl">*</span>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-sm-2" for="birthday">生日：</label>
                     <div class="col-sm-7">
-{#                        <div class="input-group date" id="birthday" data-date="" data-date-format="dd MM yyyy"#}
-{#                             data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">#}
-{#                                                <span class="input-group-addon">#}
-{#                                                    <span class="glyphicon glyphicon-calendar"></span>#}
-{#                                                </span>#}
-{#                            <input class="form-control" size="16" type="text" value="">#}
-{#                            <input type="hidden" id="dtp_input2" value="" name="birthday">#}
-{#                            <br>#}
-{#                        </div>#}
-                        {{ form.birthday }}
+                        <div class="input-group date" id="birthday" data-date="" data-date-format="dd MM yyyy"
+                             data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
+                                                <span class="input-group-addon">
+                                                    <span class="glyphicon glyphicon-calendar"></span>
+                                                </span>
+                            <input class="form-control" size="16" type="text" value="">
+                            <input type="hidden" id="dtp_input2" value="" name="birthday">
+                            <br>
+                        </div>
+{#                        {{ form.birthday }}#}
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-sm-2" for="Address-Choice">学历：</label>
                     <div class="col-sm-7">
-{#                        <select class="select2_box" style="width:300px;" name="education">#}
-{#                            {% for item in education %}#}
-{#                                <option value="{{ item.id }}">{{ item.name }}</option>#}
-{#                            {% endfor %}#}
-{#                        </select>#}
-                        {{ form.address }}
+                        <select class="select2_box" style="width:300px;" name="education">
+                            {% for item in education %}
+                                <option value="{{ item.id }}">{{ item.name }}</option>
+                            {% endfor %}
+                        </select>
+{#                        {{ form.address }}#}
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-sm-2" for="Address-Choice">常住地址：</label>
                     <div class="col-sm-7">
-{#                        <input class="form-control" id="Address-Choice" name="address" placeholder="常住地址"#}
-{#                               type="text">#}
-                        {{ form.education }}
+                        <input class="form-control" id="Address-Choice" name="address" placeholder="常住地址"
+                               type="text">
+{#                        {{ form.education }}#}
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-sm-2" for="introduction">个人说明：</label>
                     <div class="col-sm-7">
-{#                        <textarea class="form-control" rows="3" id="introduction" name="introduction"></textarea>#}
-                        {{ form.about }}
+                        <textarea class="form-control" rows="3" id="introduction" name="introduction"></textarea>
+{#                        {{ form.about }}#}
                     </div>
                 </div>
                 <div class="form-group">
