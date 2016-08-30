@@ -26,6 +26,5 @@ class user(models.Model):
     address = models.CharField(max_length=40, blank=True)  # 常住地址
     education = models.IntegerField()  # 学历
     about = models.TextField(blank=True)  # 个人说明
-
     def __unicode__(self):
         return u' %s ' % self.nick_name
