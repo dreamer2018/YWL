@@ -36,6 +36,7 @@ urlpatterns += [
     url(r'^picture/(?P<offset>\d)/$', pictures),  # 图说动态
 ]
 
+
 # APP： login
 urlpatterns += [
     url(r'^login/$', 'login.views.login'),  # 登录
